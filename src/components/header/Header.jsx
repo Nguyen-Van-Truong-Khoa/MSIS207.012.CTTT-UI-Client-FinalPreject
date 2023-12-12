@@ -28,6 +28,9 @@ export const Header = ({ type }) => {
 
   const navigate = useNavigate();
 
+  const handleSearch = () => {
+    navigate("/hotels", { state: { destination, dates, options } });
+  };
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -37,7 +40,6 @@ export const Header = ({ type }) => {
       };
     });
   };
-
 
   return (
     <header className="header" >
@@ -173,7 +175,7 @@ export const Header = ({ type }) => {
                     )}
                   </div>
                   <div className="headerSearchItem">
-                    <button className="headerBtn" >
+                    <button className="headerBtn" onClick={handleSearch}>
                       Search
                     </button>
                   </div>
