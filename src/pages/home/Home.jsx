@@ -1,6 +1,6 @@
 import React from 'react'
 import  Navbar  from '../../components/navbar/Navbar'
-import { Header } from '../../components/header/Header'
+import  Header  from '../../components/header/Header'
 import MailList from "../../components/mailList/MailList";
 import Trenddestinate from "../../components/trenddestinate/Trenddestinate";
 import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";

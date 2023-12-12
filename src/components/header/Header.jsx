@@ -9,7 +9,7 @@ import { useContext, useState } from "react";
 
 
 
-export const Header = ({ type }) => {
+const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -186,3 +186,4 @@ export const Header = ({ type }) => {
     </header>
   );
 };
+export default Header;

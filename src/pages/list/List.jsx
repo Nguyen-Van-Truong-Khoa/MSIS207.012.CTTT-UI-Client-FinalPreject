@@ -1,6 +1,6 @@
 import React from 'react'
 import  Navbar  from '../../components/navbar/Navbar'
-import { Header } from '../../components/header/Header'
+import  Header  from '../../components/header/Header'
 import {SearchItem} from "../../components/searchItem/SearchItem";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -53,6 +53,7 @@ export const List = () => {
                   </span>
                   <input
                     type="number"
+                    //onChange={(e) => setMin(e.target.value)}
                     className="lsOptionInput"
                   />
                 </div>
@@ -62,6 +63,7 @@ export const List = () => {
                   </span>
                   <input
                     type="number"
+                    //onChange={(e) => setMax(e.target.value)}
                     className="lsOptionInput"
                   />
                 </div>
@@ -71,6 +73,7 @@ export const List = () => {
                     type="number"
                     min={1}
                     className="lsOptionInput"
+                    // placeholder={options.adult}
                   />
                 </div>
                 <div className="lsOptionItem">
@@ -79,6 +82,7 @@ export const List = () => {
                     type="number"
                     min={0}
                     className="lsOptionInput"
+                   // placeholder={options.children}
                   />
                 </div>
                 <div className="lsOptionItem">
@@ -87,6 +91,7 @@ export const List = () => {
                     type="number"
                     min={1}
                     className="lsOptionInput"
+                   // placeholder={options.room}
                   />
                 </div>
               </div>
