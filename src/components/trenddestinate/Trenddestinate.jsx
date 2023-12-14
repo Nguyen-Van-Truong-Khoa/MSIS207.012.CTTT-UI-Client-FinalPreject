@@ -1,11 +1,16 @@
 import "./trenddestinate.css";
+import useFetch from "../../hooks/useFetch";
 
 const Trenddestinate = () => {
-
-
+  const { data, loading, error } = useFetch(
+    "/hotels/countByCity?cities=hanoi,danang,hochiminh"
+  );
+    console.log(data);
   return (
     <div className="featured">
-
+      {loading ? (
+        "Loading please wait"
+      ) : (
         <>
           <div className="featuredItem">
             <img
@@ -15,7 +20,7 @@ const Trenddestinate = () => {
             />
             <div className="featuredTitles">
               <h1>Hà Nội</h1>
-              <h2>3 properties</h2>
+              <h2>{data[0]} properties</h2>
             </div>
           </div>
 
@@ -27,7 +32,7 @@ const Trenddestinate = () => {
             />
             <div className="featuredTitles">
               <h1>Đà Nẵng</h1>
-              <h2>3 properties</h2>
+              <h2>{data[1]} properties</h2>
             </div>
           </div>
           <div className="featuredItem">
@@ -38,11 +43,11 @@ const Trenddestinate = () => {
             />
             <div className="featuredTitles">
               <h1>Hồ Chí Minh</h1>
-              <h2>3 properties</h2>
+              <h2>{data[2]} properties</h2>
             </div>
           </div>
         </>
-
+      )}
     </div>
   );
 };

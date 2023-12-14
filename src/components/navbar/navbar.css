@@ -1,5 +1,5 @@
 .navbar{
-    height: 50px;
+    height: 70px;
     background-color: #003580;
     display: flex;
     justify-content: center;
@@ -28,3 +28,9 @@
     color: #003580;
     border-radius: 8px;
   }
+  
+  .navItems{
+    display: flex;
+    flex-direction:row;
+  }
+

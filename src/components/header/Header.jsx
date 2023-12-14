@@ -1,12 +1,11 @@
-import React from 'react'
-import "./header.css"
+import "./header.css";
 import { DateRange } from "react-date-range";
+import { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
-
+import { SearchContext } from "../../context/SearchContext";
 
 
 const Header = ({ type }) => {
@@ -28,9 +27,6 @@ const Header = ({ type }) => {
 
   const navigate = useNavigate();
 
-  const handleSearch = () => {
-    navigate("/hotels", { state: { destination, dates, options } });
-  };
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -41,6 +37,12 @@ const Header = ({ type }) => {
     });
   };
 
+  const { dispatch } = useContext(SearchContext);
+
+  const handleSearch = () => {
+    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
+    navigate("/hotels", { state: { destination, dates, options } });
+  };
   return (
     <header className="header" >
       <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
