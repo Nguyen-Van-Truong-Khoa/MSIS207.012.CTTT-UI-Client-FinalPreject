@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const useFetch = (PUrl) => {
-  const url = "http://localhost:4000/api" + PUrl;
+  const url = "https://final-project-api-r57i.onrender.com/api" + PUrl;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
