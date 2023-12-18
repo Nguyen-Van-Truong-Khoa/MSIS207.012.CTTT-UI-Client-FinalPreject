@@ -30,7 +30,7 @@ export const List = () => {
   return (
     <div>
       <Navbar />
-      <Header type="list" />
+      <Header type="list" state= {'0'}/>
       <div className="listContainer">
         <div className="listWrapper">
           <div className="listSearch">

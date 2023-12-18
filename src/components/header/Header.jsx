@@ -4,11 +4,12 @@ import { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
 
 
-const Header = ({ type }) => {
+const Header = ({ type, state }) => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -43,26 +44,46 @@ const Header = ({ type }) => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
     navigate("/hotels", { state: { destination, dates, options } });
   };
+
+  const [activeItem, setActiveItem] = useState(state);
+
+  const handleItemClick = (index) => {
+    setActiveItem(index);
+  }
+
+  const { user } = useContext(AuthContext);
+
   return (
     <header className="header" >
       <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
         <div className="headerList">
-            <div className="headerItem active">
-              <i class="fa-solid fa-bed"></i> 
-              <span>Booking</span>
+            <div className={`headerItem ${activeItem === '0' ? 'active' : ''}`}>
+              <Link to="/" style={{ textDecoration: "none" , color: "white"}}
+              onClick={() => handleItemClick('0')}>
+                <i class="fa-solid fa-bed"></i> 
+                <span>Booking</span>
+              </Link>
             </div>
-            <div className="headerItem">
-              <i class="fa-solid fa-user-tie"></i>
-              <span>Admin</span>
-            </div>
-            <div className="headerItem">
-              <i class="fa-solid fa-calendar-check"></i> 
-              <span>Find Booking</span>
-            </div>
-            <div className="headerItem">
-              <i className="fas fa-broom mr-1"></i> 
-              <span>Cleaning</span>
-            </div>
+            {user != null && user.isAdmin ? (
+              <>
+                <div className={`headerItem ${activeItem === '1' ? 'active' : ''}`}>
+                <Link to="/admin" style={{ textDecoration: "none" , color: "white"}}
+                onClick={() => handleItemClick('1')}>
+                  <i class="fa-solid fa-user-tie"></i>
+                  <span>Admin</span>
+                </Link>
+                            </div>
+                            <div className="headerItem">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Find Booking</span>
+                            </div>
+                            <div className="headerItem">
+                <i className="fas fa-broom mr-1"></i>
+                <span>Cleaning</span>
+                            </div>
+              </>
+            ) : ("")}
+            
         </div>
         {type !== "list" && (
           <>

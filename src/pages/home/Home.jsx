@@ -12,7 +12,7 @@ export const Home = () => {
   return (
     <div>
         <Navbar />
-        <Header/>
+        <Header state= {'0'}/>
         <div className="homeContainer">
           <h1 className="homeTitle">Trending destination</h1>
           <Trenddestinate/>

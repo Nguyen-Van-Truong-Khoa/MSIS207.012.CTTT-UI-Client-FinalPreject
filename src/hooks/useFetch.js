@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import {server} from "../url"
 import axios from "axios";
 
 const useFetch = (PUrl) => {
-  const url = "https://final-project-api-r57i.onrender.com/api" + PUrl;
+  const url = server + PUrl;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);

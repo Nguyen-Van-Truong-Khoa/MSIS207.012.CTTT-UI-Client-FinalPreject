@@ -28,6 +28,10 @@
   gap: 10px;
 }
 
+i {
+  padding-right: 3px;
+}
+
 .headerItem.active {
   border: 1px solid white;
   padding: 10px;

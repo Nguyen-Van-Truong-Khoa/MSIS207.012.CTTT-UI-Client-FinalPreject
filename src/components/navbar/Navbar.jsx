@@ -12,8 +12,8 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   const onLogout = () => {
-    // dispatch({type : "LOGOUT"})
-    // navigate("/");
+    localStorage.removeItem("user");
+    navigate("/login");
   }
   return (
     <div className="navbar">
@@ -23,7 +23,7 @@ const Navbar = () => {
         </Link>
         {user ? (
           <div className="navItems">
-            <h3>{user.username}</h3>
+            <p>{user.username}</p>
             <button className="navButton" onClick={onLogout()}>Logout</button>
           </div>
         ) : (

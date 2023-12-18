@@ -3,8 +3,9 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import  Navbar  from '../../components/navbar/Navbar'
+import {server} from "../../url"
 import "./login.css";
-
+axios.defaults.withCredentials = true;
 const Login = () => {
   const [credentials, setCredentials] = useState({
     username: undefined,
@@ -23,7 +24,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("https://final-project-api-r57i.onrender.com/api/auth/login", credentials);
+      const res = await axios.post(server + "/auth/login", credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
       navigate("/")
     } catch (err) {

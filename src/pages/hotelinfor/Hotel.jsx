@@ -59,7 +59,7 @@ export const Hotel = () => {
   return (
     <div>
       <Navbar />
-      <Header type="list" />
+      <Header type="list" state= {'0'}/>
       {loading ? (
         "loading"
       ) : (

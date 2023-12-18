@@ -1,4 +1,4 @@
-.featured{
+.featuredTrend{
     width: 100%;
     max-width: 1024px;
     display: flex;
@@ -7,7 +7,7 @@
     z-index: 1;
   }
   
-  .featuredItem{
+  .featuredTrendItem{
     position: relative;
     color: white;
     border-radius: 10px;
@@ -16,13 +16,13 @@
     flex:1
   }
   
-  .featuredImg{
+  .featuredTrendImg{
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
   
-  .featuredTitles{
+  .featuredTrendTitles{
     position: absolute;
     bottom: 20px;
     left: 20px;
