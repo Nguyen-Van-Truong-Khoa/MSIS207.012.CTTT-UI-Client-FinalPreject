@@ -12,8 +12,8 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   const onLogout = () => {
-    localStorage.removeItem("user");
-    navigate("/login");
+    // localStorage.removeItem("user");
+    // navigate("/login");
   }
   return (
     <div className="navbar">
