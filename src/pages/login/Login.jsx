@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 import  Navbar  from '../../components/navbar/Navbar'
 import {server} from "../../url"
 import "./login.css";
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 const Login = () => {
   const [credentials, setCredentials] = useState({
     username: undefined,
