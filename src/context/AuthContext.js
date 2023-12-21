@@ -45,6 +45,13 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);
+
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("user");
+    document.cookie = 'access_token=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;';
+  };
+
   console.log()
   return (
     <AuthContext.Provider
@@ -53,6 +60,7 @@ export const AuthContextProvider = ({ children }) => {
         loading: state.loading,
         error: state.error,
         dispatch,
+        logout,
       }}
     >
       {children}

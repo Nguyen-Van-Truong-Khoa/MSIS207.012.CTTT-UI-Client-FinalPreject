@@ -1,4 +1,4 @@
-import "./new.scss";
+import "./register.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header"
@@ -38,15 +38,14 @@ const New = ({ inputs, title }) => {
     } catch (err) {
       console.error(err);
       alert("Registration failed. Please try again.");
-    }  };
+    }
+  };
 
   console.log(info);
   return (
     <div>
       <Navbar/>
-      <Header type={"list"} state= {'1'}/>
       <div className="new">
-        <Sidebar />
         <div className="newContainer">
           <div className="top">
             <h1>{title}</h1>
@@ -86,7 +85,7 @@ const New = ({ inputs, title }) => {
                     />
                   </div>
                 ))}
-                <button onClick={handleClick}>Send</button>
+                <button onClick={handleClick}>Submit</button>
               </form>
             </div>
           </div>

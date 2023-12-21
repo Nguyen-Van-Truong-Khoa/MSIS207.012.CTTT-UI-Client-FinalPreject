@@ -55,7 +55,11 @@ const NewHotel = () => {
       };
 
       await axios.post(server + "/hotels", newhotel);
-    } catch (err) {console.log(err)}
+      alert("Add new hotel successful!");
+    } catch (err) {
+      alert("Add new hotel failed. Please try again.");
+      console.log(err)
+    }
   };
   return (
     <div>

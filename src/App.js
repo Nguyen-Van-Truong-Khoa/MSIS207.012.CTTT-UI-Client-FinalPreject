@@ -11,6 +11,7 @@ import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewRoom from "./pages/newRoom/NewRoom";
+import Register from "./pages/register/Register";
 import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
@@ -127,6 +128,12 @@ function App() {
               />
             </Route>
       </Route>
+      <Route
+                path="/register"
+                element={
+                    <Register inputs={userInputs} title="Register" />
+                }
+      />
     </Routes>
    </BrowserRouter>
   );

@@ -5,15 +5,17 @@ import { useNavigate } from "react-router-dom";
 import "./navbar.css"
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
 
   const { dispatch } = useContext(AuthContext);
+
+  const { user, logout } = useContext(AuthContext);
 
   const navigate = useNavigate()
 
   const onLogout = () => {
-    // localStorage.removeItem("user");
-    // navigate("/login");
+    logout();
+    navigate("/");
   }
   return (
     <div className="navbar">
@@ -24,11 +26,11 @@ const Navbar = () => {
         {user ? (
           <div className="navItems">
             <p>{user.username}</p>
-            <button className="navButton" onClick={onLogout()}>Logout</button>
+            <button className="navButton" onClick={onLogout}>Logout</button>
           </div>
         ) : (
           <div className="navItems">
-            <Link to={"/"}>
+            <Link to={"/register"}>
               <button className="navButton">Register</button>
             </Link>
             <Link to={"/login"}>
