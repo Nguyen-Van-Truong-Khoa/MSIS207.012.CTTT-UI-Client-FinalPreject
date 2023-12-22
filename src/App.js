@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Home } from './pages/home/Home';
 import { List } from './pages/list/List';
 import { Hotel }  from './pages/hotelinfor/Hotel';
+import { Adminhotel }  from './pages/adminhotelinfor/Adminhotel';
 import Login from "./pages/login/Login";
 import Admin from "./pages/admin/Admin";
 import Adminlist from "./pages/adminList/List";
@@ -85,10 +86,10 @@ function App() {
                 }
               />
               <Route
-                path=":productId"
+                path=":hotelId"
                 element={
                   <ProtectedRoute>
-                    <Single />
+                    <Adminhotel />
                   </ProtectedRoute>
                 }
               />
