@@ -33,7 +33,7 @@ const New = ({ inputs, title }) => {
         img: url,
       };
 
-      await axios.post(server + "/auth/register", newUser);
+      await axios.post(server + "/auth/register", newUser,{withCredentials: true});
       alert("Registration successful! You can now log in.");
     } catch (err) {
       console.error(err);

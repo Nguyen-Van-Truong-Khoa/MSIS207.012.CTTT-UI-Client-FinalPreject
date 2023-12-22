@@ -4,8 +4,9 @@ import { userColumns, userRows } from "../../datatablesource";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch";
+import {server} from "../../url"
 import axios from "axios";
-
+axios.defaults.withCredentials = true;
 const Datatable = ({columns}) => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
@@ -18,7 +19,7 @@ const Datatable = ({columns}) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/admin/${path}/${id}`);
+      await axios.delete(server + `/${path}/${id}`);
       setList(list.filter((item) => item._id !== id));
     } catch (err) {}
   };
@@ -57,8 +58,8 @@ const Datatable = ({columns}) => {
         className="datagrid"
         rows={list}
         columns={columns.concat(actionColumn)}
-        pageSize={9}
-        rowsPerPageOptions={[9]}
+        pageSize={20}
+        rowsPerPageOptions={[20]}
         checkboxSelection
         getRowId={(row) => row._id}
       />

@@ -33,9 +33,9 @@ const NewHotel = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
+      const data = new FormData();
       const list = await Promise.all(
         Object.values(files).map(async (file) => {
-          const data = new FormData();
           data.append("file", file);
           data.append("upload_preset", "upload");
           const uploadRes = await axios.post(
@@ -54,7 +54,7 @@ const NewHotel = () => {
         photos: list,
       };
 
-      await axios.post(server + "/hotels", newhotel);
+      await axios.post(server + "/hotels", newhotel,{withCredentials: true});
       alert("Add new hotel successful!");
     } catch (err) {
       alert("Add new hotel failed. Please try again.");
