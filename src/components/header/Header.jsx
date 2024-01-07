@@ -73,14 +73,6 @@ const Header = ({ type, state }) => {
                   <span>Admin</span>
                 </Link>
                             </div>
-                            <div className="headerItem">
-                <i class="fa-solid fa-calendar-check"></i>
-                <span>Find Booking</span>
-                            </div>
-                            <div className="headerItem">
-                <i className="fas fa-broom mr-1"></i>
-                <span>Cleaning</span>
-                            </div>
               </>
             ) : ("")}
             
